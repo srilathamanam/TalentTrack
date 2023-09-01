@@ -1,4 +1,4 @@
-package com.jobapplicant.example.version1.Config;
+package com.jobapplicant.example.Frontendversion.Config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,8 +9,8 @@ import java.util.Properties;
 
 
 @Configuration
-public class EmailConfig {
-  /*  @Value("${spring.mail.host}")
+public class EmailConfigure {
+    @Value("${spring.mail.host}")
     private String mailHost;
     @Value("${spring.mail.port}")
     private String mailPort;
@@ -20,7 +20,7 @@ public class EmailConfig {
     private String mailPassword;
 
     @Bean
-    public JavaMailSender getJavaMailSenders() {
+    public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
         javaMailSender.setHost(mailHost);
         javaMailSender.setPort(Integer.parseInt(mailPort));
@@ -31,5 +31,5 @@ public class EmailConfig {
         props.put("mail.smtp.starttls.enable", "true");
         return javaMailSender;
     }
-*/
+
 }

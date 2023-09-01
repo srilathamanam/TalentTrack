@@ -13,6 +13,7 @@ import java.util.Map;
 
 @RestController
 public class ApplicantRegisterController {
+    /*
     @Autowired
     private ApplicantRegisterService userService;
 
@@ -42,7 +43,7 @@ public class ApplicantRegisterController {
 
             return new ResponseEntity<>(userService.forgotPassword(email), HttpStatus.OK);
         }*/
-
+/*
     @PutMapping("/forgotpassword")
     public ResponseEntity<String> forgotPassword(@RequestBody Map<String, String> requestMap) {
         String email = requestMap.get("email");
@@ -56,10 +57,11 @@ public class ApplicantRegisterController {
         // Implement the logic to handle password reset here
         return new ResponseEntity<>("Password reset link clicked for: " + email, HttpStatus.OK);
     }*/
+    /*
       @PutMapping("/set-password")
       public ResponseEntity<String> setPassword(@RequestBody Map<String, String> requestMap) {
           String email = requestMap.get("email");
           String password = requestMap.get("password");
           return new ResponseEntity<>(userService.setPassword(email, password), HttpStatus.OK);
-      }
+      }*/
     }

@@ -4,8 +4,8 @@ import com.jobapplicant.example.version1.Entity.ApplicantLogin;
 import com.jobapplicant.example.version1.Entity.ApplicantRegister;
 import com.jobapplicant.example.version1.Entity.ApplicantRegisterwithOTP;
 import com.jobapplicant.example.version1.Repository.ApplicantRegisterRepository;
-import com.jobapplicant.example.version1.Util.EmailUtil;
-import com.jobapplicant.example.version1.Util.OtpUtil;
+import com.jobapplicant.example.version1.Util.EmailUtils;
+import com.jobapplicant.example.version1.Util.OtpUtils;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +16,11 @@ import java.util.Optional;
 
 @Service
 public class ApplicantRegisterService {
-
+/*
     @Autowired
-    private OtpUtil otpUtil;
+    private OtpUtils otpUtil;
     @Autowired
-    private EmailUtil emailUtil;
+    private EmailUtils emailUtil;
     @Autowired
     private ApplicantRegisterRepository userRepository;
     public ApplicantRegisterwithOTP register(ApplicantRegister applicantRegister) {
@@ -32,9 +32,9 @@ public class ApplicantRegisterService {
         }
         else {
 
-            String otp = otpUtil.generateOtp();
+           // String otp = otpUtil.generateOtp();
             try {
-                emailUtil.sendOtpEmail(applicantRegister.getEmail(), otp);
+             //   emailUtil.sendOtpEmail(applicantRegister.getEmail(), otp);
             } catch (MessagingException e) {
                 throw new RuntimeException("Unable to send otp please try again");
             }
@@ -42,9 +42,9 @@ public class ApplicantRegisterService {
             user.setName(applicantRegister.getName());
             user.setEmail(applicantRegister.getEmail());
             user.setPassword(applicantRegister.getPassword());
-            user.setOtp(otp);
+           user.setOtp(otp);
             user.setOtpGeneratedTime(LocalDateTime.now());
-           // userRepository.save(user);
+            userRepository.save(user);
 
             return userRepository.save(user);  }
 
@@ -63,7 +63,7 @@ public class ApplicantRegisterService {
     public String regenerateOtp(String email) {
         ApplicantRegisterwithOTP user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found with this email: " + email));
-        String otp = otpUtil.generateOtp();
+       String otp = otpUtil.generateOtp();
         try {
             emailUtil.sendOtpEmail(email, otp);
         } catch (MessagingException e) {
@@ -104,5 +104,5 @@ public String setPassword(String email, String newpassword)
     userRepository.save(user);
     return "new password set sucessfully";
 }
-
+*/
 }
